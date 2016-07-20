@@ -14,10 +14,7 @@ MLL.Test/bin/*
 *.dll
 *.dll.mdb
 
-*.sln
 *.userprefs
-
-*.csproj*
 
 *.exe
 
