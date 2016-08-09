@@ -35,6 +35,8 @@
   <ItemGroup>
     <Compile Include="JLib\common\SingleLinkedList_Test.cs" />
     <Compile Include="JLib\common\DoubleLinkedList_Test.cs" />
+    <Compile Include="JLib\tree\SimpleBinaryTree_Test.cs" />
+    <Compile Include="JLib\common\Dictionary.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -58,6 +60,7 @@
     <Folder Include="JLib\" />
     <Folder Include="Osprey\" />
     <Folder Include="JLib\common\" />
+    <Folder Include="JLib\tree\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

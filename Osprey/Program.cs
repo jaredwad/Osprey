@@ -4,6 +4,8 @@ using com.virtus.MLL.search;
 using com.virtus.JLib.common;
 using System.Collections.Generic;
 using System.Linq;
+using com.virtus.JLib.tree;
+using com.virtus.JLib.Rss;
 
 namespace Osprey {
 	class MainClass {
@@ -12,6 +14,45 @@ namespace Osprey {
 		public delegate int oneIntTest(int item);
 
 		public static void Main(string[] args) {
+			var api = new RssReader("http://rss.nytimes.com/services/xml/rss/nyt/Business.xml");
+
+			Console.WriteLine(api.ToString());
+		}
+
+		public static void testBinaryTree() {
+			int size = 5;
+			int numDel = size / 2;
+
+			var bTree = new SimpleBinaryTree<int>();
+			var arr = new int[size];
+			var rand = new Random();
+
+			for (int i = 0; i < size; ++i) {
+				arr[i] = rand.Next();
+			}
+
+			//Insert items into the list
+			foreach (int i in arr) {
+				bTree.insert(i);
+			}
+
+			//Delete random items from thelist
+			var list = new List<int>(arr);
+
+			for (int i = 0; i < numDel; ++i) {
+				int item = list[rand.Next(list.Count)];
+
+				list.Remove(item);
+				bTree.Delete(item);
+			}
+
+			//Test for completion
+			foreach (int i in list) {
+				Console.WriteLine(string.Format("contains {0}: {1}", i, bTree.Contains(i)));
+			}
+		}
+
+		public static void testListSpeed() {
 			var singleList = new SingleLinkedList<int>();
 			var doubleList = new DoubleLinkedList<int>();
 			var list = new LinkedList<int>();
